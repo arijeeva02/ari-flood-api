@@ -87,7 +87,10 @@ message = data.get("message", "")
 
     elif any(word in message for word in ["rain", "rainfall"]):
         if not sensor["sensor_available"]:
-            reply = "Live rainfall information is currently unavailable because no sensor update has been received."
+            reply = (
+                "Live rainfall information is currently unavailable because "
+                "no sensor update has been received."
+            )
         else:
             reply = (
                 "Rain sensor status: "
@@ -96,7 +99,10 @@ message = data.get("message", "")
 
     elif any(word in message for word in ["water", "level", "distance"]):
         if not sensor["sensor_available"]:
-            reply = "Live water-level readings are currently unavailable. Please check the ESP32 connection."
+            reply = (
+                "Live water-level readings are currently unavailable. "
+                "Please check the ESP32 connection."
+            )
         else:
             reply = (
                 f"Current sensor distance: {sensor['distance']} cm. "
@@ -109,7 +115,10 @@ message = data.get("message", "")
 
     elif any(word in message for word in ["flood", "alert", "status"]):
         if not sensor["sensor_available"]:
-            reply = "Live flood status is currently unavailable. No sensor update has been received."
+            reply = (
+                "Live flood status is currently unavailable. "
+                "No sensor update has been received."
+            )
         else:
             reply = (
                 "Flood monitoring status: "
