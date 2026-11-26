@@ -229,22 +229,34 @@ try:
     # DEFAULT RESPONSE
 
     else:
-            reply = (
-                "I am FloodGuard AI. Please ask me about flood status, "
-                "water levels, rainfall, shelter occupancy, "
-                "emergency safety or our project."
-            )
 
-        return jsonify({"reply": reply})
+        reply = (
+            "I am FloodGuard AI. Please ask me about flood status, "
+            "water levels, rainfall, shelter occupancy, "
+            "emergency safety or our project."
+        )
 
-    except Exception as e:
-        print("Chatbot Error:", e)
+    return jsonify({
+        "reply": reply
+    })
 
-        return jsonify({
-            "reply": "Sorry! Something went wrong. Please try again."
-        }), 500
+except Exception as e:
 
+    print("Chatbot Error:", e)
 
-# RUN APPLICATION
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    return jsonify({
+        "reply": "Sorry! Something went wrong. Please try again."
+    }), 500
+
+==========================================
+
+RUN APPLICATION
+
+==========================================
+
+if name == "main":
+
+app.run(
+    host="0.0.0.0",
+    port=5000
+)
